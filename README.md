@@ -1,1 +1,1 @@
-### Angular Starter Plunker - Typescript
+### Angular2 Typescript dynamic named outlet
