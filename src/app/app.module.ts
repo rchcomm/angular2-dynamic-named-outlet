@@ -5,9 +5,13 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
 import { DynamicOutletService } from './shared/DynamicOutlet.Service';
+//import { AlertModule } from 'ng2-bootstrap';
 
 @NgModule({
-  imports: [BrowserModule, routing],
+  imports: [BrowserModule, 
+    routing
+    // AlertModule.forRoot()
+  ],
   entryComponents: [],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

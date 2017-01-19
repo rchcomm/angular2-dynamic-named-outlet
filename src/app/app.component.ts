@@ -3,9 +3,11 @@ import { Router, RouterOutlet, RouterOutletMap } from '@angular/router';
 
 import { DynamicOutletService } from './shared/DynamicOutlet.Service';
 
+//<alert type="success">hello</alert>
 @Component({
   selector: 'app-root',
   template: `
+      
       <h1>My App!</h1>
       <a [routerLink]="['/']">Home</a>
       <a [routerLink]="['/page']">Page</a>

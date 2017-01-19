@@ -30,10 +30,17 @@ export class DynamicOutletService {
 
         this.compiler.compileModuleSync(TemplateModule);
         const mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
+        // We create a factory out of the component we want to create
+        //let factory = this.resolver.resolveComponentFactory(componentclass);
         const factory = mod.componentFactories.find((comp) =>
                 comp.componentType === TemplateComponent
             );
-        let cmpRef = this.rootAux.createComponent(factory);
+        let componentRef = this.rootAux.createComponent(factory);
+        if(componentRef.instance.close){
+            componentRef.instance.close.subscribe(() => {
+                componentRef.destroy();
+            });
+        }
 
         let ro: RouterOutlet = new RouterOutlet(this.parentOutletMap, this.rootAux, this.resolver, name);
         console.info('by DynamicOutletService : ', [this.parentOutletMap]);
